@@ -6,7 +6,7 @@ const taskRoute = require('./routes/todos')
 var bodyParser = require("body-parser");
 
 const app = express()
-var port=process.env.PORT||2222
+const PORT= process.env.PORT||2222
 
 
 app.use(express.urlencoded({ extended: true }))
@@ -27,7 +27,9 @@ db.sync()
 
   .then(() => {
 
-    app.listen(port)
+    app.listen(PORT,function(){
+      console.log('server successfully started on port'+PORT)
+    });
 
   })
 
